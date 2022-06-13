@@ -1,6 +1,7 @@
 package yamlconfig
 
 import (
+	"fmt"
 	"os"
 
 	"gopkg.in/validator.v2"
@@ -16,11 +17,11 @@ func LoadConfig(path string, output any) error {
 	defer f.Close()
 
 	if err := yaml.NewDecoder(f).Decode(output); err != nil {
-		return err
+		return fmt.Errorf("error decoding config: %s", err)
 	}
 
 	if err := validator.Validate(output); err != nil {
-		return err
+		return fmt.Errorf("config validation failed: %s", err)
 	}
 
 	return nil
