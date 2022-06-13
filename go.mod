@@ -1,4 +1,4 @@
-module github.com/brody192/yamlconfig
+module github.com/overrnet/yamlconfig
 
 go 1.18
 
