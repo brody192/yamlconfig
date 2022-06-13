@@ -7,7 +7,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func loadConfig(path string, output any) error {
+func LoadConfig(path string, output any) error {
 	f, err := os.Open(path)
 	if err != nil {
 		return err
